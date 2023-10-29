@@ -1,6 +1,19 @@
 name: GitHub Actions Demo by abhi
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+
+on:
+  workflow_dispatch:
+    inputs:
+        purpose:
+            description: "Want to restore?"
+            type: choice
+            default: "World"
+            options:
+            - "restore"
+            - "reset"
+  push:
+  - master
+        
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -19,3 +32,13 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo " workspace:- ${{github.worspace}}."
       - run: echo "ref:- ${{github.ref}}."
+
+      - name:
+        if: ${{ github.event.inputs.purpose }} == "restore"
+        run: |
+            echo "Restoring"
+
+      - name:
+        if: ${{ github.event.inputs.purpose }} == "reset"
+        run: |
+            echo "Reseting"
