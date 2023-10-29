@@ -4,13 +4,13 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch:
     inputs:
-        purpose:
-            description: "Want to restore?"
-            type: choice
-            default: "World"
-            options:
-            - "restore"
-            - "reset"
+      purpose:
+        description: "Want to restore?"
+        type: choice
+        default: "World"
+        options:
+        - "restore"
+        - "reset"
   push:
   - master
         
