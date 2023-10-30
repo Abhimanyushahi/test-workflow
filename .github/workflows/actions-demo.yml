@@ -1,11 +1,11 @@
-name: GitHub Actions Demo by abhi
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Reset and Restore
 
 on:
   workflow_dispatch:
     inputs:
       purpose:
         description: "Want to restore?"
+        required: true
         type: choice
         options:
         - "restore"
@@ -18,21 +18,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This name os runner is a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 It is a ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - run: echo "commit id:- $github_sha."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo " workspace:- ${{github.worspace}}."
-      - run: echo "ref:- ${{github.ref}}."
-
       - name:
         if: ${{ github.event.inputs.purpose }} == "restore"
         run: |
