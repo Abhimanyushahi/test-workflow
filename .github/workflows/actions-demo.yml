@@ -27,6 +27,16 @@ jobs:
             echo "Restoring"
             echo "hi guys" > abhi.txt
             cat abhi.txt
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: restore-artifact
+          path: abhi.txt
+
+      - name: download artifact
+        uses: actions/download-artifacts@v2
+        with:
+          name: restore-artifact
 
       - name: Reset
         if: ${{ github.event.inputs.platform == 'reset' }} 
