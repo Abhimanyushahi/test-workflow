@@ -8,22 +8,22 @@ on:
         required: true
         type: choice
         options:
-        - "restore"
-        - "reset"
+        - 'restore'
+        - 'reset'
   # push:
   #   branches:
   #     - master
         
 jobs:
-  Explore-GitHub-Actions:
+  Restore_&_Reset_jobs:
     runs-on: ubuntu-latest
     steps:
       - name:
-        if: ${{ github.event.inputs.purpose }} == "restore"
-        run: |
+        if: ${{ github.event.inputs.purpose }} == 'restore'
+        run: |-
             echo "Restoring"
 
       - name:
-        if: ${{ github.event.inputs.purpose }} == "reset"
-        run: |
+        if: ${{ github.event.inputs.purpose }} == 'reset'
+        run: |-
             echo "Reseting"
