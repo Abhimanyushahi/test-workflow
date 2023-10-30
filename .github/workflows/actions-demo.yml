@@ -3,8 +3,7 @@ name: Generate and Use File
 on:
   push:
     branches:
-      - main
-
+      - master
 jobs:
   generate_file:
     runs-on: ubuntu-latest
