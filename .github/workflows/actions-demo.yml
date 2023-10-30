@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Restore
-        if: ${{ github.event.inputs.platform }} == 'restore'
+        if: ${{ github.event.inputs.platform == 'restore' }} 
         run: |-
             echo "Restoring"
 
       - name: Reset
-        if: ${{ github.event.inputs.platform }} == 'reset'
+        if: ${{ github.event.inputs.platform == 'reset' }} 
         run: |-
             echo "Reseting"
