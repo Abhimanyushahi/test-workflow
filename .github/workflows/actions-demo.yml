@@ -9,7 +9,7 @@ on:
         type: choice
         options:
         - restore
-        - rese
+        - reset
   # push:
   #   branches:
   #     - master
