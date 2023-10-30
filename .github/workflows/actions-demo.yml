@@ -18,12 +18,18 @@ jobs:
   Restore_and_Reset_jobs:
     runs-on: ubuntu-latest
     steps:
+      - name: General step
+        run: |-
+        echo "Always run"
       - name: Restore
         if: ${{ github.event.inputs.platform == 'restore' }} 
         run: |-
             echo "Restoring"
+            echo "hi guys" > abhi.txt
+            cat abhi.txt
 
       - name: Reset
         if: ${{ github.event.inputs.platform == 'reset' }} 
         run: |-
             echo "Reseting"
+            cat abhi.txt
