@@ -3,13 +3,13 @@ name: Reset and Restore
 on:
   workflow_dispatch:
     inputs:
-      purpose:
-        description: "Want to restore?"
+      platform:
+        description: "Want to restore or reset?"
         required: true
         type: choice
         options:
-        - 'restore'
-        - 'reset'
+        - restore
+        - rese
   # push:
   #   branches:
   #     - master
@@ -18,12 +18,12 @@ jobs:
   Restore_&_Reset_jobs:
     runs-on: ubuntu-latest
     steps:
-      - name:
-        if: ${{ github.event.inputs.purpose }} == 'restore'
+      - name:Restore
+        if: ${{ github.event.inputs.platform }} == 'restore'
         run: |-
             echo "Restoring"
 
-      - name:
-        if: ${{ github.event.inputs.purpose }} == 'reset'
+      - name: Reset
+        if: ${{ github.event.inputs.platform }} == 'reset'
         run: |-
             echo "Reseting"
