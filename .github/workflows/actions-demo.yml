@@ -1,46 +1,33 @@
-name: Reset and Restore
+name: Generate and Use File
 
 on:
-  workflow_dispatch:
-    inputs:
-      platform:
-        description: "Want to restore or reset?"
-        required: true
-        type: choice
-        options:
-        - restore
-        - reset
-  # push:
-  #   branches:
-  #     - master
-        
-jobs:
-  Restore_and_Reset_jobs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: General step
-        run: |-
-            echo "Always run"
-      - name: Restore
-        if: ${{ github.event.inputs.platform == 'restore' }} 
-        run: |-
-            echo "Restoring"
-            echo "hi guys" > abhi.txt
-            cat abhi.txt
-      - name: upload artifact
-        uses: actions/upload-artifact@v2
-        with: 
-          name: restore-artifact
-          path: abhi.txt
+  push:
+    branches:
+      - main
 
-      - name: download artifact
+jobs:
+  generate_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate File
+        run: echo "This is a generated file." > generated_file.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-file
+          path: generated_file.txt
+
+  use_generated_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
-          name: restore-artifact
+          name: generated-file
           path: .
 
-      - name: Reset
-        if: ${{ github.event.inputs.platform == 'reset' }} 
-        run: |-
-            echo "Reseting"
-            cat abhi.txt
+      - name: Show Content of Generated File
+        run: cat generated_file.txt
