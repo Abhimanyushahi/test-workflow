@@ -37,6 +37,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: restore-artifact
+          path: .
 
       - name: Reset
         if: ${{ github.event.inputs.platform == 'reset' }} 
