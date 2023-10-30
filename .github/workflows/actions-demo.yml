@@ -5,18 +5,18 @@ on:
     branches:
       - master
 jobs:
-  generate_file:
-    runs-on: ubuntu-latest
+  # generate_file:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Generate File
-        run: echo "This is a generated file." > generated_file.txt
+  #   steps:
+  #     - name: Generate File
+  #       run: echo "This is a generated file." > generated_file.txt
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: generated-file
-          path: generated_file.txt
+  #     - name: Upload Artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: generated-file
+  #         path: generated_file.txt
 
   use_generated_file:
     runs-on: ubuntu-latest
