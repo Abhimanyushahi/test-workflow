@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: General step
         run: |-
-        echo "Always run"
+            echo "Always run"
       - name: Restore
         if: ${{ github.event.inputs.platform == 'restore' }} 
         run: |-
