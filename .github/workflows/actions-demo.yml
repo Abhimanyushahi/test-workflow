@@ -7,13 +7,12 @@ on:
       purpose:
         description: "Want to restore?"
         type: choice
-        default: "restore"
         options:
         - "restore"
         - "reset"
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
         
 jobs:
   Explore-GitHub-Actions:
