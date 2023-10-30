@@ -18,7 +18,7 @@ jobs:
   Restore_&_Reset_jobs:
     runs-on: ubuntu-latest
     steps:
-      - name:Restore
+      - name: Restore
         if: ${{ github.event.inputs.platform }} == 'restore'
         run: |-
             echo "Restoring"
