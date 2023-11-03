@@ -19,14 +19,28 @@ jobs:
   #         path: generated_file.txt
 
   use_generated_file:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
+    
+    intputs:
+      source:
+        description: 'source project'
+        required: true
+      target: 
+        description: 'target project'
+        required: true 
+      
 
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
-          name: generated-file
-          path: .
+          name: generated-file 
+          path: . 
+      - name: projects 
+        run: | 
+          echo "source: ${{ inputs.source }}"
+          echo "target: ${{ inputs.target }}"
+          
 
       - name: Show Content of Generated File
         run: cat generated_file.txt
