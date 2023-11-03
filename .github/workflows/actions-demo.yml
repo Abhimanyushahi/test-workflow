@@ -1,33 +1,22 @@
-name: Generate and Use File
+
+name: Example Workflow
 
 on:
   push:
     branches:
-      - master 
+      - main
+
 jobs:
-  my_job:
-    runs-on: ubuntu-latest  
-    
-    inputs: 
-      source:
-        description: 'source project'
-        required: true 
-      target: 
-        description: 'target project'
-        required: true 
-      
+  example-job:
+    strategy:
+      matrix:
+        string1: ['Input One', 'Another Input']
+        string2: ['Input Two', 'Yet Another Input']
+
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: generated-file 
-          path: . 
-      - name: projects 
-        run: | 
-          echo "source: ${{ inputs.source }}"
-          echo "target: ${{ inputs.target }}"
-          
-
-      - name: Show Content of Generated File
-        run: cat generated_file.txt
+      - name: Display Inputs
+        run: |
+          echo "Input 1: ${{ matrix.string1 }}"
+          echo "Input 2: ${{ matrix.string2 }}"
