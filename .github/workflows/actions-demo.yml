@@ -21,7 +21,7 @@ jobs:
   use_generated_file:
     runs-on: ubuntu-latest  
     
-    intputs:
+    inputs:
       source:
         description: 'source project'
         required: true
