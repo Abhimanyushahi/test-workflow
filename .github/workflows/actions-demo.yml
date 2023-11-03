@@ -3,15 +3,15 @@ name: Generate and Use File
 on:
   push:
     branches:
-      - master
+      - master 
 jobs:
   my_job:
     runs-on: ubuntu-latest  
     
-  inputs:
+    inputs: 
       source:
         description: 'source project'
-        required: true
+        required: true 
       target: 
         description: 'target project'
         required: true 
