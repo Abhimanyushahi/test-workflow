@@ -1,22 +1,21 @@
-
-name: Example Workflow
+name: Manual Workflow
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      parameter1:
+        description: 'Input parameter 1'
+        required: true
+        default: 'default_value'
+      parameter2:
+        description: 'Input parameter 2'
+        required: false
 
 jobs:
-  example-job:
-    strategy:
-      matrix:
-        string1: ['Input One', 'Another Input']
-        string2: ['Input Two', 'Yet Another Input']
-
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Display Inputs
+      - name: Print parameters
         run: |
-          echo "Input 1: ${{ matrix.string1 }}"
-          echo "Input 2: ${{ matrix.string2 }}"
+          echo "Parameter 1: ${{ github.event.inputs.parameter1 }}"
+          echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
