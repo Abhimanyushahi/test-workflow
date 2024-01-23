@@ -21,6 +21,7 @@ jobs:
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
       - name: first script
         run: |
+          ls -R
           chmod +x first.sh
           bash first.sh
           echo "first script run successful"
