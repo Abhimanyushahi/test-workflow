@@ -6,16 +6,26 @@ on:
       parameter1:
         description: 'Input parameter 1'
         required: true
-        default: 'default_value'
+        default: 'first'
       parameter2:
         description: 'Input parameter 2'
         required: false
 
 jobs:
-  build:
+  restor_instances:
     runs-on: ubuntu-latest
     steps:
       - name: Print parameters
         run: |
           echo "Parameter 1: ${{ github.event.inputs.parameter1 }}"
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
+      - name: first script
+        run: |
+          chmod +x first.sh
+          bash first.sh
+          echo "first script run successful"
+      - name: Second script
+        run: |
+          chmod +x second.sh
+          bash second.sh
+          echo "second script runs successful"
