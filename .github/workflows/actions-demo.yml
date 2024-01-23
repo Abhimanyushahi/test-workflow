@@ -11,6 +11,10 @@ on:
         description: 'Input parameter 2'
         required: false
 
+  push:
+    branches:
+      - master
+
 jobs:
   restor_instances:
     runs-on: ubuntu-latest
@@ -23,9 +27,9 @@ jobs:
         run: |-
           pwd
           sudo apt install tree -y
-          cd .. 
+          
           tree
-          ls -R
+          ls -R . 
           chmod +x first.sh
           bash first.sh
           echo "first script run successful"
