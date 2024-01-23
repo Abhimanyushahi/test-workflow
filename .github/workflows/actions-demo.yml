@@ -23,6 +23,7 @@ jobs:
         run: |-
           pwd
           sudo apt install tree -y
+          cd .. 
           tree
           ls -R
           chmod +x first.sh
