@@ -22,7 +22,8 @@ jobs:
       - name: first script
         run: |-
           pwd
-          ls
+          sudo apt install tree -y
+          tree
           ls -R
           chmod +x first.sh
           bash first.sh
