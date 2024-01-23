@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print parameters
-        run: |
+        run: |-
           echo "Parameter 1: ${{ github.event.inputs.parameter1 }}"
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
       - name: first script
-        run: |
+        run: |-
           pwd
           ls
           ls -R
@@ -28,7 +28,7 @@ jobs:
           bash first.sh
           echo "first script run successful"
       - name: Second script
-        run: |
+        run: |-
           chmod +x second.sh
           bash second.sh
           echo "second script runs successful"
