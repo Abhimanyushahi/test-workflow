@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Print parameters
         run: |-
-          echo "Parameter 1: ${{ github.event.inputs.parameter1 }}"
+          echo -e "\033[0;31m Parameter 1: \033[00m${{ github.event.inputs.parameter1 }}"
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
       - name: first script
         run: |-
