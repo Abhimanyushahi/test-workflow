@@ -30,11 +30,8 @@ jobs:
 
       - name: Step 1
         run: |-
-          # Convert the space-separated string to an array
-          instance_array=(${github.event.inputs.instance_array})
-          echo "Input array: ${instance_array[@]}"
           # Call first.sh passing the array and parameters as arguments
-          bash scripts/first.sh "${instance_array[@]}" "${{ github.event.inputs.parameter1 }}" "${{ github.event.inputs.parameter2 }}"
+          bash scripts/first.sh "${{ github.event.inputs.instance_array }}" "${{ github.event.inputs.parameter1 }}" "${{ github.event.inputs.parameter2 }}"
 
       - name: Execute second.sh
         run: |- 
