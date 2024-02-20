@@ -30,11 +30,16 @@ jobs:
           echo "Input array: ${{ github.event.inputs.instance_array }}"
 
       - name: Execute first.sh
-        run: bash first.sh
+        run: |-
+          chmod +x scripts/first.sh
+          bash scripts/first.sh
 
       - name: Print hello.txt
-        run: cat hello.txt
+        run: |-
+          cat scripts/hello.txt
 
       - name: Execute second.sh
-        run: bash second.sh
+        run: |- 
+          chmod +x scripts/second.sh
+          bash scripts/second.sh
 
