@@ -10,6 +10,10 @@ on:
       parameter2:
         description: 'Input parameter 2'
         required: false
+      arrayParam:
+        description: 'Description of your array parameter'
+        required: true
+        default: '[]'
 
   push:
     branches:
@@ -23,6 +27,9 @@ jobs:
         run: |-
           echo -e "\033[0;31m Parameter 1: \033[00m${{ github.event.inputs.parameter1 }}"
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
+
+      - name: Step 1
+        run: echo "Input array: ${{ toJson(inputs.arrayParam) }}"
       - name: first script
         run: |-
           pwd
