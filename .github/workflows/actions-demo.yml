@@ -32,8 +32,3 @@ jobs:
         run: |-
           echo "Input array: ${{ github.event.inputs.arrayParam }}"
 
-      - name: Second script
-        run: |
-          chmod +x second.sh
-          bash second.sh
-          echo "Second script runs successful"
