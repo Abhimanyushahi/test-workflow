@@ -20,6 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
       - name: Print parameters
         run: |-
           echo -e "\033[0;31m Parameter 1: \033[00m${{ github.event.inputs.parameter1 }}"
@@ -28,13 +31,10 @@ jobs:
       - name: Step 1
         run: |-
           echo "Input array: ${{ github.event.inputs.instance_array }}"
-
-      - name: Execute first.sh
-        run: bash first.sh
-
-      - name: Print hello.txt
-        run: cat hello.txt
+          # Call first.sh passing the array and parameters as arguments
+          bash scripts/first.sh "${{ github.event.inputs.instance_array }}" "${{ github.event.inputs.parameter1 }}" "${{ github.event.inputs.parameter2 }}"
 
       - name: Execute second.sh
-        run: bash second.sh
-
+        run: |- 
+          chmod +x scripts/second.sh
+          bash scripts/second.sh
