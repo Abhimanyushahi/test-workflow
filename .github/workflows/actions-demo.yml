@@ -31,6 +31,9 @@ jobs:
 
       - name: Execute first.sh
         run: |-
+          pwd
+          ls -R
+          cd ..
           ls -R
           ls -R test-workflow
           chmod +x scripts/first.sh
