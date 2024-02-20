@@ -18,6 +18,7 @@ on:
 jobs:
   restor_instances:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Print parameters
         run: |-
@@ -27,4 +28,13 @@ jobs:
       - name: Step 1
         run: |-
           echo "Input array: ${{ github.event.inputs.instance_array }}"
+
+      - name: Execute first.sh
+        run: bash first.sh
+
+      - name: Print hello.txt
+        run: cat hello.txt
+
+      - name: Execute second.sh
+        run: bash second.sh
 
