@@ -13,7 +13,7 @@ on:
       instance_array:
         description: 'Description of your array parameter'
         required: true
-        default: '["ads", "gobblin", "reporting", "event", "billing", "main", "attribution"]'
+        default: 'ads gobblin reporting event billing main attribution'
 
 jobs:
   restor_instances:
@@ -30,9 +30,11 @@ jobs:
 
       - name: Step 1
         run: |-
-          echo "Input array: ${{ github.event.inputs.instance_array }}"
+          # Convert the space-separated string to an array
+          instance_array=(${github.event.inputs.instance_array})
+          echo "Input array: ${instance_array[@]}"
           # Call first.sh passing the array and parameters as arguments
-          bash scripts/first.sh "${{ github.event.inputs.instance_array }}" "${{ github.event.inputs.parameter1 }}" "${{ github.event.inputs.parameter2 }}"
+          bash scripts/first.sh "${instance_array[@]}" "${{ github.event.inputs.parameter1 }}" "${{ github.event.inputs.parameter2 }}"
 
       - name: Execute second.sh
         run: |- 
