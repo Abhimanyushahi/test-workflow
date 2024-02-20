@@ -35,9 +35,6 @@ jobs:
         run: |-
           pwd
           ls -R
-          cd ..
-          ls -R
-          ls -R test-workflow
           chmod +x scripts/first.sh
           bash scripts/first.sh
 
