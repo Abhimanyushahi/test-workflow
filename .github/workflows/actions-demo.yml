@@ -29,19 +29,20 @@ jobs:
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
 
       - name: Step 1
-        run: echo "Input array: ${{ toJson(inputs.arrayParam) }}"
-      - name: first script
-        run: |-
+        run: echo "Input array: ${{ github.event.inputs.arrayParam }}"
+
+      - name: First script
+        run: |
           pwd
           sudo apt install tree -y
-          
           tree
           ls -R . 
           chmod +x first.sh
           bash first.sh
-          echo "first script run successful"
+          echo "First script run successful"
+
       - name: Second script
-        run: |-
+        run: |
           chmod +x second.sh
           bash second.sh
-          echo "second script runs successful"
+          echo "Second script runs successful"
