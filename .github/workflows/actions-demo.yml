@@ -10,14 +10,10 @@ on:
       parameter2:
         description: 'Input parameter 2'
         required: false
-      arrayParam:
+      instance_array:
         description: 'Description of your array parameter'
         required: true
-        default: '[]'
-
-  push:
-    branches:
-      - master
+        default: '["ads", "gobblin", "reporting", "event", "billing", "main", "attribution"]'
 
 jobs:
   restor_instances:
@@ -30,5 +26,5 @@ jobs:
 
       - name: Step 1
         run: |-
-          echo "Input array: ${{ github.event.inputs.arrayParam }}"
+          echo "Input array: ${{ github.event.inputs.instance_array }}"
 
