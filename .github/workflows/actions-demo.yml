@@ -29,7 +29,8 @@ jobs:
           echo "Parameter 2: ${{ github.event.inputs.parameter2 }}"
 
       - name: Step 1
-        run: echo "Input array: ${{ github.event.inputs.arrayParam }}"
+        run: |-
+          echo "Input array: ${{ github.event.inputs.arrayParam }}"
 
       - name: First script
         run: |
