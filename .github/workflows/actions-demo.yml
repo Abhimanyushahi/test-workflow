@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Print parameters
         run: |-
           echo -e "\033[0;31m Parameter 1: \033[00m${{ github.event.inputs.parameter1 }}"
