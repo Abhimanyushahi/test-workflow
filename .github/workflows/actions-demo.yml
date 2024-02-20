@@ -32,16 +32,6 @@ jobs:
         run: |-
           echo "Input array: ${{ github.event.inputs.arrayParam }}"
 
-      - name: First script
-        run: |
-          pwd
-          sudo apt install tree -y
-          tree
-          ls -R . 
-          chmod +x first.sh
-          bash first.sh
-          echo "First script run successful"
-
       - name: Second script
         run: |
           chmod +x second.sh
