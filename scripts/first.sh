@@ -17,7 +17,7 @@ echo "Parameter 1: $parameter1"
 echo "Parameter 2: $parameter2"
 
 # Check if the restored_array contains "ads" using grep
-if grep -q "event" /tmp/restored_file.txt; then
+if grep -q "abhi" /tmp/restored_file.txt; then
     echo "Restored array contains 'ads'"
 else
     echo "Restored array does not contain 'ads'"
